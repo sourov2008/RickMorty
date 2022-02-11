@@ -19,7 +19,8 @@ struct Endpoint {
    
     static let characterList = "character"
     
-    
+    static let characterDetails = "character/{id}"
+
 
 }
 

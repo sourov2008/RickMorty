@@ -39,7 +39,7 @@ class RestAPIClient {
                     completion(.success(obj))
                     
                 case .failure(let error):
-                    
+
                     completion(.failure(.APIError(error.localizedDescription)))
                 }
             }
