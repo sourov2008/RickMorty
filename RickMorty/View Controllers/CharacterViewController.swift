@@ -1,6 +1,6 @@
 //
 //  CharacterViewController.swift
-//  Interview Test
+//  RickyMorty
 //
 //  Created by Shourob Datta on 29/1/22.
 //
@@ -54,31 +54,21 @@ class CharacterViewController: UIViewController {
         
         let endpoint = Endpoint.characterList
         
-        self.photoService.fetchCharacters(path: endpoint) { [weak self] responseData in
         
+        self.photoService.fetchCharacters(path: endpoint) { [weak self] response, success, error in
+        
+            guard success == true && response != nil else{
+                self?.showToast(message: error ?? "error", font: UIFont.systemFont(ofSize: 12))
+                 return
+            }
             
-            print("")
-
-            switch responseData {
-            case .success(let res):
-                print("")
+            self?.items = response?.results ?? []
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
  
-                self?.items = res.results ?? []
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-                
-            case .failure(NetworkError.APIError(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-            case .failure(NetworkError.BadURL(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-            case .failure(NetworkError.NoData(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-            case .failure(NetworkError.DecodingError(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-             }
          }
+
                 
     }
     

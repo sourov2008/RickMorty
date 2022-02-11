@@ -1,6 +1,6 @@
 //
 //  RestAPIClient.swift
-//  Interview Test
+//  RickyMorty
 //
 //  Created by Shourob Datta on 29/1/22.
 //

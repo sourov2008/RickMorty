@@ -1,6 +1,6 @@
 //
 //  MockCharactersData.swift
-//  Interview Test
+//  RickyMorty
 //
 //  Created by Shourob Datta on 06/01/22.
 //

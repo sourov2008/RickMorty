@@ -1,6 +1,6 @@
 //
 //  SearchHistoryTableViewCell.swift
-//  Interview Test
+//  RickyMorty
 //
 //  Created by Shourob Datta on 30/1/22.
 //

@@ -1,6 +1,6 @@
 //
 //  MockCharacters.swift
-//  Interview TestTests
+//  RickyMorty 
 //
 //  Created by Shourob Datta on 25/1/22.
 //
@@ -14,16 +14,16 @@ class MockCharactersAPITest: XCTestCase {
 
         let obj = CharacterServiceCoordinator(characterServiceMthod: MockCharactersData() )
         
-        obj.fetchCharacters(path: "local") { [weak self] responseData in
+        obj.fetchCharacters(path: "local") { [weak self] response,success,error  in
 
-            switch responseData {
-            case .success(let res):
-                XCTAssert(res.results?.count ?? 0 > 0)
-
-            case .failure(_): break
-                //XCTAssert(res.stat == "ok")
-
+            
+            guard success == true && response != nil else{
+                //self?.showToast(message: error ?? "error", font: UIFont.systemFont(ofSize: 12))
+                 return
             }
+            
+            XCTAssert(response?.results?.count ?? 0 > 0)
+        
         
         }
 

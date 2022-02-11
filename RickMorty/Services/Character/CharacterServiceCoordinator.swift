@@ -19,24 +19,24 @@ class CharacterServiceCoordinator {
     }
     
 
-    func fetchCharacters(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
+    func fetchCharacters(path: String, completion: @escaping( _ response:ModelCharacterBaseClass?,  _ success: Bool, _ error: String?) -> Void) {
         
         characterServiceMethod.getCharacters(path: path) { result in
             switch result {
-            case .success(let character):
+            case .success(let details):
                 
-                if character.error != nil {
-                    completion(.failure(.APIError(character.error ?? "error")))
-                    
+                if details.error != nil {
+                    completion(nil, false, details.error ?? "error")
+
                 }else{
 
-                    completion(result)
-                } 
+                    completion(details, true, nil)
+                }
                 
             case .failure(let error):
                 print(error)
-                completion(result)
-                
+                completion(nil, false, error.localizedDescription )
+
  
             }
         }
