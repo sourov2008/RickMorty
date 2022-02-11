@@ -23,11 +23,11 @@ class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rick And Morty"
-        
+        self.configureNavigationController()
+
         // Search config
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
-        self.configureNavigationController()
         navigationItem.hidesSearchBarWhenScrolling = false
 
         tableView.dataSource = self

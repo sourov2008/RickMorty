@@ -12,7 +12,6 @@
 		401B855027B5CE1100A7CF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401B854E27B5CE1100A7CF71 /* Main.storyboard */; };
 		401B855227B5CE1300A7CF71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401B855127B5CE1300A7CF71 /* Assets.xcassets */; };
 		401B855527B5CE1300A7CF71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401B855327B5CE1300A7CF71 /* LaunchScreen.storyboard */; };
-		401B856027B5CE1300A7CF71 /* RickMortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B855F27B5CE1300A7CF71 /* RickMortyTests.swift */; };
 		401B856A27B5CE1300A7CF71 /* RickMortyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B856927B5CE1300A7CF71 /* RickMortyUITests.swift */; };
 		401B856C27B5CE1300A7CF71 /* RickMortyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B856B27B5CE1300A7CF71 /* RickMortyUITestsLaunchTests.swift */; };
 		4044399D27B5DF010085A481 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4044399C27B5DF010085A481 /* Kingfisher */; };
@@ -90,7 +89,6 @@
 		401B855427B5CE1300A7CF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		401B855627B5CE1300A7CF71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401B855B27B5CE1300A7CF71 /* RickMortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickMortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		401B855F27B5CE1300A7CF71 /* RickMortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyTests.swift; sourceTree = "<group>"; };
 		401B856527B5CE1300A7CF71 /* RickMortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickMortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		401B856927B5CE1300A7CF71 /* RickMortyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyUITests.swift; sourceTree = "<group>"; };
 		401B856B27B5CE1300A7CF71 /* RickMortyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				404439AF27B5DF9D0085A481 /* Model */,
 				404439AE27B5DF860085A481 /* Network */,
 				404439AD27B5DF840085A481 /* Utility */,
-				404439AC27B5DF820085A481 /* New Group */,
 				404439AB27B5DF7B0085A481 /* Extensions */,
 				404439A127B5DF570085A481 /* Services */,
 				401B854827B5CE1100A7CF71 /* AppDelegate.swift */,
@@ -196,7 +193,6 @@
 				40443A0B27B691F30085A481 /* MockCharactersData.swift */,
 				40443A0D27B691F30085A481 /* MockCharactersAPITest.swift */,
 				40443A0A27B691F30085A481 /* Characters.json */,
-				401B855F27B5CE1300A7CF71 /* RickMortyTests.swift */,
 			);
 			path = RickMortyTests;
 			sourceTree = "<group>";
@@ -225,13 +221,6 @@
 				404439B227B5DFD60085A481 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		404439AC27B5DF820085A481 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		404439AD27B5DF840085A481 /* Utility */ = {
@@ -509,7 +498,6 @@
 				40443A0527B67C350085A481 /* ModelCharacterDetailsBaseClass.swift in Sources */,
 				404439A627B5DF6E0085A481 /* CharacterServiceUsingAPI.swift in Sources */,
 				404439F627B66F6B0085A481 /* CharacterDetailsViewController.swift in Sources */,
-				401B856027B5CE1300A7CF71 /* RickMortyTests.swift in Sources */,
 				404439E927B5F9950085A481 /* ModelCharacterLocation.swift in Sources */,
 				404439EF27B5F9950085A481 /* ModelCharacterResults.swift in Sources */,
 				404439B427B5DFD60085A481 /* UIViewController+Extensions.swift in Sources */,

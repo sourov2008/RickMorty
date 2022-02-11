@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Storyboards {
     static let Main = "Main"
 }

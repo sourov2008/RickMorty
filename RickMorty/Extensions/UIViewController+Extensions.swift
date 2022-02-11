@@ -30,7 +30,7 @@ extension UIViewController
         //appearance.backgroundColor = .white
          
         appearance.backgroundColor =  UIColor.init(red: 84/255, green: 201/255, blue: 179/255, alpha: 1)
-
+        
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance

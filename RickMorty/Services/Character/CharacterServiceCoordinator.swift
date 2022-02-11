@@ -18,7 +18,6 @@ class CharacterServiceCoordinator {
         self.characterServiceMethod = characterServiceMthod
     }
     
-
     func fetchCharacters(path: String, completion: @escaping( _ response:ModelCharacterBaseClass?,  _ success: Bool, _ error: String?) -> Void) {
         
         characterServiceMethod.getCharacters(path: path) { result in
@@ -27,9 +26,7 @@ class CharacterServiceCoordinator {
                 
                 if details.error != nil {
                     completion(nil, false, details.error ?? "error")
-
                 }else{
-
                     completion(details, true, nil)
                 }
                 
