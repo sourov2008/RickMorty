@@ -17,7 +17,7 @@ struct Endpoint {
     
     static let imageUrl = "https://farm{farm}.static.flickr.com/{server}/{id}_{secret}.jpg"
    
-    static let characterList = "character"
+    static let characterList = "character/?name={search}"
     
     static let characterDetails = "character/{id}"
 

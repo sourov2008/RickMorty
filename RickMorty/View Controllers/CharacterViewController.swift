@@ -4,14 +4,11 @@
 //
 //  Created by Shourob Datta on 29/1/22.
 //
-
 /**
- *  Load all the photos and represnt into a tabelview.
- *  Endless data load. Uses pagination.
+ *  Load all the Character and represnt into a tabelview.
  */
 import UIKit
 import Kingfisher
-
 
 class CharacterViewController: UIViewController {
 
@@ -19,47 +16,44 @@ class CharacterViewController: UIViewController {
     @IBOutlet weak var lblNoRecord: UILabel!
     var currentPaginationInfo: Pagination!
     var photoService = CharacterServiceCoordinator()
-
     @IBOutlet weak var tableView: UITableView!
  
-    let refreshControl = UIRefreshControl()
+    let searchController = UISearchController()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.title = "Rick And Morty"
-
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
         
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 70
         tableView.backgroundColor = UIColor.clear
-        //tableView.separatorColor = UIColor.clear
-        
         
     }
     override func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(true)
         self.fetchCharacters()
     }
-
  
     /**
      *  Load your desierd page from API . Related to pagination
-     *  @param pageNo: is your desired page
+     *  @param searchText: is your desired search text
      */
-    func fetchCharacters()  {
+    func fetchCharacters(searchText : String = "")  {
         
-        let endpoint = Endpoint.characterList
-        
-        
+        let endpoint = Endpoint.characterList.replacingOccurrences(of: "{search}", with: searchText)
         self.photoService.fetchCharacters(path: endpoint) { [weak self] response, success, error in
         
             guard success == true && response != nil else{
                 self?.showToast(message: error ?? "error", font: UIFont.systemFont(ofSize: 12))
-                 return
+                
+                self?.items.removeAll()
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+                return
             }
             
             self?.items = response?.results ?? []
@@ -68,25 +62,23 @@ class CharacterViewController: UIViewController {
             }
  
          }
-
-                
+    }
+}
+// MARK - UISearchResultsUpdating Delegates
+extension CharacterViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+        self.fetchCharacters(searchText: text)
     }
     
-    /**
-     *  Merge data of all pages.
-     *  @param responseObject: photo array [ModelPhotoDetails]
-     *  @param paginationInfo: paginationInfo Pagination
-     */
-
-
 }
-
+// MARK - UITableView Delegates
 
 extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
-    // MARK - UITableView Delegates
-    
-    //    // MARK - UITableView Delegates
-    
+        
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
@@ -94,11 +86,8 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cellIdentifier = "CharacterTableViewCell"
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! CharacterTableViewCell
-        
         cell.characterResult = items[indexPath.row]
         
         return cell
@@ -106,7 +95,6 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     
     // UITableViewDelegate Method
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         //return UITableView.automaticDimension
         return 110
     }
@@ -116,10 +104,8 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
         let details = CharacterDetailsViewController.instantiateFromStoryboardMain()
         details.characterID = items[indexPath.row].id ?? -123
         self.navigationController?.pushViewController(details, animated: true)
-        
     }
-    
- 
+
     
 }
 
