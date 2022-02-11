@@ -31,22 +31,17 @@ class CharacterDetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        retriveCharacterByusing(id: characterID)
-        
-        
+        retriveCharacterByUsing(id: characterID)
     }
     
-
 }
 
 // MARK: Class funciton
 extension CharacterDetailsViewController{
     
-    func retriveCharacterByusing(id: Int)  {
-        
-        
+    // Fetch character details from web API
+    func retriveCharacterByUsing(id: Int)  {
         let endpoint = Endpoint.characterDetails.replacingOccurrences(of: "{id}", with: id.description)
-        
         detailsService.fetchCharacterDetails(path: endpoint) { [weak self] response, success, error in
             
             guard success == true && response != nil else{
@@ -54,7 +49,7 @@ extension CharacterDetailsViewController{
                  return
             }
             
-            // Update UI
+            // success then update UI
             self?.updateUI(details: response!)
             
         }

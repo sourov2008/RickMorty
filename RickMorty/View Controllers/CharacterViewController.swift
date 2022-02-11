@@ -5,7 +5,8 @@
 //  Created by Shourob Datta on 29/1/22.
 //
 /**
- *  Load all the Character and represnt into a tabelview.
+ *  Load all the Characters and represnt into a tabelview.
+ *  Added a UISearchController on navigation to perform search
  */
 import UIKit
 import Kingfisher
@@ -14,19 +15,21 @@ class CharacterViewController: UIViewController {
 
     var items = [ModelCharacterResults]()
     @IBOutlet weak var lblNoRecord: UILabel!
-    var currentPaginationInfo: Pagination!
-    var photoService = CharacterServiceCoordinator()
+    var characterService = CharacterServiceCoordinator()
     @IBOutlet weak var tableView: UITableView!
  
     let searchController = UISearchController()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rick And Morty"
+        
+        // Search config
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
-        
+        self.configureNavigationController()
+        navigationItem.hidesSearchBarWhenScrolling = false
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = UIColor.clear
@@ -38,13 +41,13 @@ class CharacterViewController: UIViewController {
     }
  
     /**
-     *  Load your desierd page from API . Related to pagination
-     *  @param searchText: is your desired search text
+     *  Load your desierd page from API.
+     *  @param searchText is your desired search text
      */
     func fetchCharacters(searchText : String = "")  {
         
         let endpoint = Endpoint.characterList.replacingOccurrences(of: "{search}", with: searchText)
-        self.photoService.fetchCharacters(path: endpoint) { [weak self] response, success, error in
+        self.characterService.fetchCharacters(path: endpoint) { [weak self] response, success, error in
         
             guard success == true && response != nil else{
                 self?.showToast(message: error ?? "error", font: UIFont.systemFont(ofSize: 12))
@@ -76,7 +79,6 @@ extension CharacterViewController: UISearchResultsUpdating {
     
 }
 // MARK - UITableView Delegates
-
 extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
         
     // number of rows in table view

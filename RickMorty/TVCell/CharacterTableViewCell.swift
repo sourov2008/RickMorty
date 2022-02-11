@@ -1,7 +1,6 @@
 //
 //  CharacterTableViewCell.swift
 //  RickyMorty
-//
 //  Created by Shourob Datta on 29/1/22.
 //
 
