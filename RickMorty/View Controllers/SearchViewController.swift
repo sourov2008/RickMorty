@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
         do{
             // Save the search value & push into Photos view controller
             let searchText = try searchValidation.validiateSearch(text: txtSearch.text)
-            let obj = PhotosViewController.instantiateFromStoryboardMain()
+            let obj = CharacterViewController.instantiateFromStoryboardMain()
            //obj.searchText = searchText.trimmingCharacters(in: .whitespaces)
             self.navigationController?.pushViewController(obj, animated: true)
             // save in search history.
@@ -110,7 +110,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let obj = PhotosViewController.instantiateFromStoryboardMain()
+        let obj = CharacterViewController.instantiateFromStoryboardMain()
         //obj.searchText = items[indexPath.row].searachTitle ?? "recent"
         self.navigationController?.pushViewController(obj, animated: true)
 

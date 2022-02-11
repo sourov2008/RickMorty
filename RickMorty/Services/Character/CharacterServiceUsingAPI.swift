@@ -8,16 +8,16 @@
 import Foundation
 
 
-protocol PhotoServiceDelegate {
+protocol CharacterServiceDelegate {
     
-    func getPhotos(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void)
+    func getCharacters(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void)
     
 }
 
-class PhotoServiceUsingAPI : PhotoServiceDelegate  {
+class CharacterServiceUsingAPI : CharacterServiceDelegate  {
     
 
-    func getPhotos(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
+    func getCharacters(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
            
         return RestAPIClient.request(type: ModelCharacterBaseClass.self,
                                      route: NetworkRouter.nonPaginatedGET(path: path),

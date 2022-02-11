@@ -1,5 +1,5 @@
 //
-//  PhotoTableViewCell.swift
+//  CharacterTableViewCell.swift
 //  Interview Test
 //
 //  Created by Shourob Datta on 29/1/22.
@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PhotoTableViewCell: UITableViewCell {
+class CharacterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbltitle: UILabel?
     @IBOutlet weak var img: UIImageView?

@@ -1,5 +1,5 @@
 //
-//  PhotoViewController.swift
+//  CharacterViewController.swift
 //  Interview Test
 //
 //  Created by Shourob Datta on 29/1/22.
@@ -13,12 +13,12 @@ import UIKit
 import Kingfisher
 
 
-class PhotosViewController: UIViewController {
+class CharacterViewController: UIViewController {
 
     var items = [ModelCharacterResults]()
     @IBOutlet weak var lblNoRecord: UILabel!
     var currentPaginationInfo: Pagination!
-    var photoService = PhotoServiceCoordinator()
+    var photoService = CharacterServiceCoordinator()
 
     @IBOutlet weak var tableView: UITableView!
  
@@ -28,7 +28,7 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "Photos List"
+        self.title = "Rick And Morty"
 
         
         tableView.dataSource = self
@@ -54,7 +54,7 @@ class PhotosViewController: UIViewController {
         
         let endpoint = Endpoint.characterList
         
-        self.photoService.fetchPhotos(path: endpoint) { [weak self] responseData in
+        self.photoService.fetchCharacters(path: endpoint) { [weak self] responseData in
         
             
             print("")
@@ -92,7 +92,7 @@ class PhotosViewController: UIViewController {
 }
 
 
-extension PhotosViewController: UITableViewDelegate, UITableViewDataSource {
+extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK - UITableView Delegates
     
     //    // MARK - UITableView Delegates
@@ -106,8 +106,8 @@ extension PhotosViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cellIdentifier = "PhotoTableViewCell"
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! PhotoTableViewCell
+        let cellIdentifier = "CharacterTableViewCell"
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! CharacterTableViewCell
         
         cell.characterResult = items[indexPath.row]
         
