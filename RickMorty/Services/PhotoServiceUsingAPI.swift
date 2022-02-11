@@ -10,17 +10,17 @@ import Foundation
 
 protocol PhotoServiceDelegate {
     
-    func getPhotos(path: String, completion: @escaping(Result<ModelPhotoFlickrBaseClass, NetworkError>) -> Void)
+    func getPhotos(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void)
     
 }
 
 class PhotoServiceUsingAPI : PhotoServiceDelegate  {
     
 
-    func getPhotos(path: String, completion: @escaping(Result<ModelPhotoFlickrBaseClass, NetworkError>) -> Void) {
+    func getPhotos(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
            
-        return RestAPIClient.request(type: ModelPhotoFlickrBaseClass.self,
-                                     route: NetworkRouter.paginatedGET(path: path),
+        return RestAPIClient.request(type: ModelCharacterBaseClass.self,
+                                     route: NetworkRouter.nonPaginatedGET(path: path),
                            completion: completion)
     }
 

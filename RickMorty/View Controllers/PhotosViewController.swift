@@ -22,8 +22,7 @@ class PhotosViewController: UIViewController {
     var photoService = PhotoServiceCoordinator()
 
     @IBOutlet weak var tableView: UITableView!
-    var searchText = ""
-
+ 
     let refreshControl = UIRefreshControl()
 
     
@@ -32,7 +31,6 @@ class PhotosViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Photos List"
 
-        setupPullToRefresh()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -45,43 +43,40 @@ class PhotosViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(true)
-        self.fetchFirstPage()
+        self.fetchCharacters()
     }
 
-    
-    func fetchFirstPage() {
-        fetchPageNo(pageNo: 1)
-    }
-    
+ 
     /**
      *  Load your desierd page from API . Related to pagination
      *  @param pageNo: is your desired page
      */
-    func fetchPageNo(pageNo : Int)  {
+    func fetchCharacters()  {
         
-        var endpoint = Endpoint.photoRetrive.replacingOccurrences(of: "{page}", with: "\(pageNo)")
-        endpoint = endpoint.replacingOccurrences(of: "{text}", with: searchText)
-
+        let endpoint = Endpoint.characterList
         
         self.photoService.fetchPhotos(path: endpoint) { [weak self] responseData in
         
-            switch responseData {
-            case .success(let res):
-                print("")
-                
-                let pagination = Pagination(pageCount:res.photos?.pages , count: res.photos?.total, currentPage: res.photos?.page)
+            
+            print("")
 
-                self?.processData(responseObject: res.photos?.photo, paginationInfo: pagination)
-
-            case .failure(NetworkError.APIError(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-            case .failure(NetworkError.BadURL(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-            case .failure(NetworkError.NoData(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-            case .failure(NetworkError.DecodingError(let messeage )):
-                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
-             }
+//            switch responseData {
+//            case .success(let res):
+//                print("")
+//
+//            let pagination = Pagination(pageCount:res.photos?.pages , count: res.photos?.total, currentPage: res.photos?.page)
+//
+//            self?.processData(responseObject: res.photos?.photo, paginationInfo: pagination)
+//
+//            case .failure(NetworkError.APIError(let messeage )):
+//                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
+//            case .failure(NetworkError.BadURL(let messeage )):
+//                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
+//            case .failure(NetworkError.NoData(let messeage )):
+//                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
+//            case .failure(NetworkError.DecodingError(let messeage )):
+//                self?.showToast(message: messeage, font: UIFont.systemFont(ofSize: 12))
+//             }
          }
                 
     }
@@ -92,30 +87,30 @@ class PhotosViewController: UIViewController {
      *  @param paginationInfo: paginationInfo Pagination
      */
 
-    func processData(responseObject: [ModelPhotoDetails]?, paginationInfo: Pagination) {
-        
-        if items.count > 0 && paginationInfo.currentPage == 1 {
-            items.removeAll()
-        }
-        
-        items.append(contentsOf: responseObject!)
-
-//        for dict in responseObject!   {
-//            items.append(dict)
+//    func processData(responseObject: [ModelPhotoDetails]?, paginationInfo: Pagination) {
+//
+//        if items.count > 0 && paginationInfo.currentPage == 1 {
+//            items.removeAll()
 //        }
 //
-        currentPaginationInfo = paginationInfo
-        if items.count <= 0{
-            lblNoRecord.text = "Sorry, no records found. Please search again"
-         }
-        
-        
-        tableView.reloadData()
-        self.tableView.endRefreshing(at: .bottom)
-        //self.tableView.endRefreshing(at: .top)
-        
-        
-    }
+//        items.append(contentsOf: responseObject!)
+//
+////        for dict in responseObject!   {
+////            items.append(dict)
+////        }
+////
+//        currentPaginationInfo = paginationInfo
+//        if items.count <= 0{
+//            lblNoRecord.text = "Sorry, no records found. Please search again"
+//         }
+//
+//
+//        tableView.reloadData()
+//        self.tableView.endRefreshing(at: .bottom)
+//        //self.tableView.endRefreshing(at: .top)
+//
+//
+//    }
 
 
 
@@ -167,21 +162,3 @@ extension PhotosViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
- extension PhotosViewController {
-    
-    func setupPullToRefresh() {
-
-        tableView.addPullToRefresh(PullToRefresh(position: .bottom)) { [weak self] in
-            
-            if (self?.currentPaginationInfo != nil) && self?.currentPaginationInfo.pageCount ?? 0  > 1  {
-                self?.fetchPageNo(pageNo: (self?.currentPaginationInfo.currentPage!)! + 1)
-            } else {
-                self?.tableView.endRefreshing(at: .bottom)
-                //UtilitySwift.showToastMessage(message: "No more data available")
-                
-            }
-            
-        }
-    }
- 
-}

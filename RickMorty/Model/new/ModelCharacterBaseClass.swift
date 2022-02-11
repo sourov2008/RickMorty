@@ -12,10 +12,13 @@ struct ModelCharacterBaseClass: Codable {
   enum CodingKeys: String, CodingKey {
     case info
     case results
+    case error
+
   }
 
   var info: ModelCharacterInfo?
   var results: [ModelCharacterResults]?
+  var error: String?
 
 
 
@@ -23,6 +26,8 @@ struct ModelCharacterBaseClass: Codable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     info = try container.decodeIfPresent(ModelCharacterInfo.self, forKey: .info)
     results = try container.decodeIfPresent([ModelCharacterResults].self, forKey: .results)
+    error = try container.decodeIfPresent(String.self, forKey: .error)
+
   }
 
 }

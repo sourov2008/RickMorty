@@ -14,7 +14,7 @@ import Alamofire
 enum NetworkRouter: URLRequestConvertible {
     
     
-    case paginatedGET(path: String)
+    case nonPaginatedGET(path: String)
     case post([String: Any])
     case delete(Int)
     case update([String: Any])
@@ -25,7 +25,7 @@ enum NetworkRouter: URLRequestConvertible {
    
         var method: HTTPMethod{
             switch self {
-            case .paginatedGET:
+            case .nonPaginatedGET:
                 return .get
             case .post:
                 return .post
@@ -39,7 +39,7 @@ enum NetworkRouter: URLRequestConvertible {
         
         let params: ([String: Any]?) = {
             switch self {
-            case .paginatedGET, .delete:
+            case .nonPaginatedGET, .delete:
                 return nil
             case .post(let newTodo):
                 return newTodo
@@ -62,7 +62,7 @@ enum NetworkRouter: URLRequestConvertible {
                 relativePath = "REPLACE/\(number)"
             case .update(let number):
                 relativePath = "todos/\(number)"
-            case .paginatedGET(let path):
+            case .nonPaginatedGET(let path):
                 relativePath = path
 
 
@@ -71,10 +71,9 @@ enum NetworkRouter: URLRequestConvertible {
             
             var url = URL(string: BASE_URL)!
             if let relativePath = relativePath {
-//                let accessKey = "&appid={access_key}".replacingOccurrences(of: "{access_key}", with: ACCESSTOKEN)
-                let api_key = ACCESSTOKEN
+//              let accessKey = "&appid={access_key}".replacingOccurrences(of: "{access_key}", with: ACCESSTOKEN)
 
-                let fullUrl = BASE_URL+relativePath+"&api_key=\(api_key)"
+                let fullUrl = BASE_URL+relativePath
                 let encodedURL = fullUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
                 url = URL(string: encodedURL!)!

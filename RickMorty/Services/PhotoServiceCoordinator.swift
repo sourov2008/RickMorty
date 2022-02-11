@@ -20,14 +20,14 @@ class PhotoServiceCoordinator {
     }
     
 
-    func fetchPhotos(path: String, completion: @escaping(Result<ModelPhotoFlickrBaseClass, NetworkError>) -> Void) {
+    func fetchPhotos(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
         
         photoServiceMthod.getPhotos(path: path) { result in
             switch result {
-            case .success(let comments):
+            case .success(let character):
                 
-                if comments.stat == "fail"{
-                    completion(.failure(.APIError(comments.message ?? "error")))
+                if character.error != nil {
+                    completion(.failure(.APIError(character.error ?? "error")))
                     
                 }else{
 
@@ -38,8 +38,7 @@ class PhotoServiceCoordinator {
                 print(error)
                 completion(result)
                 
-                //NSError(domain:"Data decode error, contact with developer", code:100, userInfo:nil))
-
+ 
             }
         }
         
