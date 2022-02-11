@@ -2,7 +2,7 @@
 //  CharacterViewController.swift
 //  RickyMorty
 //
-//  Created by Shourob Datta on 29/1/22.
+//  Created by Shourob Datta on 11/02/22.
 //
 /**
  *  Load all the Characters and represnt into a tabelview.
@@ -55,12 +55,14 @@ class CharacterViewController: UIViewController {
                 self?.items.removeAll()
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.lblNoRecord.text = "Sorry, no records found"
                 }
                 return
             }
             
             self?.items = response?.results ?? []
             DispatchQueue.main.async {
+                self?.lblNoRecord.text = ""
                 self?.tableView.reloadData()
             }
  
@@ -103,7 +105,7 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let details = CharacterDetailsViewController.instantiateFromStoryboardMain()
-        details.characterID = items[indexPath.row].id ?? -123
+        details.characterID = items[indexPath.row].id ?? -123 // default 0 is not safe because index number zero is possible. set a unrealistic default value
         self.navigationController?.pushViewController(details, animated: true)
     }
 

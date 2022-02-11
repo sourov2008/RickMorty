@@ -2,7 +2,7 @@
 //  CharacterDetailsViewController.swift
 //  RickMorty
 //
-//  Created by Shourob Datta on 11/2/22.
+//  Created by Shourob Datta on 11/02/22.
 //  We uses table to take advandage of scrollview. In future contents might be bigger need a scroll view.
 
 import UIKit
