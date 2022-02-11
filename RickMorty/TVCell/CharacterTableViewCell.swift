@@ -23,8 +23,6 @@ class CharacterTableViewCell: UITableViewCell {
             if let imageURL =  URL(string: characterResult?.image ?? "" ){
                 
                 self.img?.kf.setImage(with: imageURL)
-                print(imageURL)
-                
             }
             
             lblEpisodeCount?.text = "Total episodes : " + (characterResult?.episode?.count.description)!

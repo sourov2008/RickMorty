@@ -31,7 +31,6 @@ class CharacterDetailsServiceCoordinator {
                 }
                 
             case .failure(let error):
-                print(error)
                 completion(nil, false, error.localizedDescription )
                 
  

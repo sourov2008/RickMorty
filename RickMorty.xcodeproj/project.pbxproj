@@ -33,8 +33,6 @@
 		404439C027B5DFEA0085A481 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439BA27B5DFE90085A481 /* NetworkError.swift */; };
 		404439D527B5E0070085A481 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439D327B5E0070085A481 /* CharacterTableViewCell.swift */; };
 		404439D627B5E0070085A481 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439D327B5E0070085A481 /* CharacterTableViewCell.swift */; };
-		404439D727B5E0070085A481 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439D427B5E0070085A481 /* SearchHistoryTableViewCell.swift */; };
-		404439D827B5E0070085A481 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439D427B5E0070085A481 /* SearchHistoryTableViewCell.swift */; };
 		404439DD27B5E0370085A481 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439DA27B5E0370085A481 /* CharacterViewController.swift */; };
 		404439DE27B5E0370085A481 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439DA27B5E0370085A481 /* CharacterViewController.swift */; };
 		404439E827B5F9950085A481 /* ModelCharacterLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439E327B5F9940085A481 /* ModelCharacterLocation.swift */; };
@@ -104,7 +102,6 @@
 		404439B927B5DFE90085A481 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		404439BA27B5DFE90085A481 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		404439D327B5E0070085A481 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
-		404439D427B5E0070085A481 /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		404439DA27B5E0370085A481 /* CharacterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		404439E327B5F9940085A481 /* ModelCharacterLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCharacterLocation.swift; sourceTree = "<group>"; };
 		404439E427B5F9940085A481 /* ModelCharacterBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCharacterBaseClass.swift; sourceTree = "<group>"; };
@@ -268,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				404439D327B5E0070085A481 /* CharacterTableViewCell.swift */,
-				404439D427B5E0070085A481 /* SearchHistoryTableViewCell.swift */,
 			);
 			path = TVCell;
 			sourceTree = "<group>";
@@ -488,7 +484,6 @@
 				40443A0627B67C350085A481 /* ModelCharacterDetailsLocation.swift in Sources */,
 				404439D527B5E0070085A481 /* CharacterTableViewCell.swift in Sources */,
 				40443A0827B67C350085A481 /* ModelCharacterDetailsOrigin.swift in Sources */,
-				404439D727B5E0070085A481 /* SearchHistoryTableViewCell.swift in Sources */,
 				404439EA27B5F9950085A481 /* ModelCharacterBaseClass.swift in Sources */,
 				404439DD27B5E0370085A481 /* CharacterViewController.swift in Sources */,
 				404439BF27B5DFEA0085A481 /* NetworkError.swift in Sources */,
@@ -522,7 +517,6 @@
 				404439C027B5DFEA0085A481 /* NetworkError.swift in Sources */,
 				404439AA27B5DF6E0085A481 /* CharacterServiceCoordinator.swift in Sources */,
 				40443A1127B691F30085A481 /* MockCharactersData.swift in Sources */,
-				404439D827B5E0070085A481 /* SearchHistoryTableViewCell.swift in Sources */,
 				404439B727B5DFDF0085A481 /* Constant.swift in Sources */,
 				40443A1527B691F30085A481 /* MockCharactersAPITest.swift in Sources */,
 			);

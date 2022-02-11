@@ -20,7 +20,6 @@ class MockCharactersData: CharacterServiceDelegate {
             let obj = try  JSONDecoder().decode(ModelCharacterBaseClass.self, from: jsonData)
             completion(.success(obj))
         } catch let error {
-            print(error)
             completion(.failure(.DecodingError("")))
         }
     }
