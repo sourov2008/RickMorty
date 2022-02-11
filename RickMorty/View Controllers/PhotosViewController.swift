@@ -10,7 +10,6 @@
  *  Endless data load. Uses pagination.
  */
 import UIKit
-import PullToRefresh
 import Kingfisher
 
 
