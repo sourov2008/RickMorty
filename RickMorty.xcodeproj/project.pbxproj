@@ -61,7 +61,7 @@
 		40443A1127B691F30085A481 /* MockCharactersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40443A0B27B691F30085A481 /* MockCharactersData.swift */; };
 		40443A1527B691F30085A481 /* MockCharactersAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40443A0D27B691F30085A481 /* MockCharactersAPITest.swift */; };
 		40443A1627B693330085A481 /* Characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 40443A0A27B691F30085A481 /* Characters.json */; };
-		40E5884627B72FF200BD440D /* iOS Coding Exercise.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 40E5884527B72FF100BD440D /* iOS Coding Exercise.pdf */; };
+		40C781F927CCDF4E00E647B8 /* Project Description.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 40C781F827CCDF4E00E647B8 /* Project Description.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +117,7 @@
 		40443A0A27B691F30085A481 /* Characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Characters.json; sourceTree = "<group>"; };
 		40443A0B27B691F30085A481 /* MockCharactersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCharactersData.swift; sourceTree = "<group>"; };
 		40443A0D27B691F30085A481 /* MockCharactersAPITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCharactersAPITest.swift; sourceTree = "<group>"; };
-		40E5884527B72FF100BD440D /* iOS Coding Exercise.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS Coding Exercise.pdf"; sourceTree = "<group>"; };
+		40C781F827CCDF4E00E647B8 /* Project Description.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Project Description.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +150,8 @@
 		401B853C27B5CE1100A7CF71 = {
 			isa = PBXGroup;
 			children = (
+				40C781F827CCDF4E00E647B8 /* Project Description.pdf */,
 				404439F227B6074C0085A481 /* Readme.rtf */,
-				40E5884527B72FF100BD440D /* iOS Coding Exercise.pdf */,
 				401B854727B5CE1100A7CF71 /* RickMorty */,
 				401B855E27B5CE1300A7CF71 /* RickMortyTests */,
 				401B856827B5CE1300A7CF71 /* RickMortyUITests */,
@@ -429,9 +429,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40E5884627B72FF200BD440D /* iOS Coding Exercise.pdf in Resources */,
 				40443A1627B693330085A481 /* Characters.json in Resources */,
 				401B855527B5CE1300A7CF71 /* LaunchScreen.storyboard in Resources */,
+				40C781F927CCDF4E00E647B8 /* Project Description.pdf in Resources */,
 				401B855227B5CE1300A7CF71 /* Assets.xcassets in Resources */,
 				404439F327B6074C0085A481 /* Readme.rtf in Resources */,
 				401B855027B5CE1100A7CF71 /* Main.storyboard in Resources */,
