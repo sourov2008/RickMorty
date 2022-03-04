@@ -156,7 +156,6 @@
 				401B855E27B5CE1300A7CF71 /* RickMortyTests */,
 				401B856827B5CE1300A7CF71 /* RickMortyUITests */,
 				401B854627B5CE1100A7CF71 /* Products */,
-				DC870419D8F218B03E79986E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,13 +307,6 @@
 				40443A0327B67C350085A481 /* ModelCharacterDetailsOrigin.swift */,
 			);
 			path = "Character Details";
-			sourceTree = "<group>";
-		};
-		DC870419D8F218B03E79986E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
