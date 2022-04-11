@@ -14,18 +14,20 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet weak var lblEpisodeCount: UILabel?
 
     
-    var characterResult: ModelCharacterResults?{
+    var characterResult: ModelArtsResults?{
         
         didSet{
             
-            lbltitle?.text = characterResult?.name
+            lbltitle?.text = characterResult?.title
             
-            if let imageURL =  URL(string: characterResult?.image ?? "" ){
+            if characterResult?.multimedia?.count ?? 0 >= 3{
                 
-                self.img?.kf.setImage(with: imageURL)
+                if let imageURL =  URL(string: characterResult?.multimedia?[1].url ?? "" ){
+                    self.img?.kf.setImage(with: imageURL)
+                }
             }
-            
-            lblEpisodeCount?.text = "Total episodes : " + (characterResult?.episode?.count.description)!
+
+            lblEpisodeCount?.text =  characterResult?.byline ?? ""
 
         }
         

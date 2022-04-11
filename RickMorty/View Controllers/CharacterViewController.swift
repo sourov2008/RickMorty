@@ -24,6 +24,9 @@ class CharacterViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Rick And Morty"
         self.configureNavigationController()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200 // a number and not UITableView.automaticDimension
 
         // Search config
         navigationItem.searchController = searchController
@@ -91,15 +94,15 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CharacterTableViewCell"
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! CharacterTableViewCell
-        //cell.characterResult = items[indexPath.row]
+        cell.characterResult = items[indexPath.row]
         
         return cell
     }
     
     // UITableViewDelegate Method
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //return UITableView.automaticDimension
-        return 110
+        return UITableView.automaticDimension
+        //return 110
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
