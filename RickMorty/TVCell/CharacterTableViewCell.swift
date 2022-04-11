@@ -20,7 +20,7 @@ class CharacterTableViewCell: UITableViewCell {
             
             lbltitle?.text = characterResult?.title
             
-            if characterResult?.multimedia?.count ?? 0 >= 3{
+            if (characterResult?.multimedia?.count ?? 0) >= 2{
                 
                 if let imageURL =  URL(string: characterResult?.multimedia?[1].url ?? "" ){
                     self.img?.kf.setImage(with: imageURL)

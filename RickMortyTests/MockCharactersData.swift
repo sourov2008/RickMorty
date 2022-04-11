@@ -27,7 +27,7 @@ class MockCharactersData: CharacterServiceDelegate {
  
     private func readLocalJsonFile() -> Data? {
         do {
-            guard let fileUrl =  Bundle.main.url(forResource: "Characters", withExtension: "json") else {
+            guard let fileUrl =  Bundle.main.url(forResource: "MockArtsList", withExtension: "json") else {
                 return nil
             }
             let data = try Data(contentsOf: fileUrl)
