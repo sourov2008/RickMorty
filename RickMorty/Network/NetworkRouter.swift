@@ -69,9 +69,9 @@ enum NetworkRouter: URLRequestConvertible {
             
             var url = URL(string: BASE_URL)!
             if let relativePath = relativePath {
-//              let accessKey = "&appid={access_key}".replacingOccurrences(of: "{access_key}", with: ACCESSTOKEN)
+                 let accessKey =  relativePath.replacingOccurrences(of: "{api_key}", with: APIKey)
 
-                let fullUrl = BASE_URL+relativePath
+                let fullUrl = BASE_URL+accessKey
                 let encodedURL = fullUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
                 url = URL(string: encodedURL!)!

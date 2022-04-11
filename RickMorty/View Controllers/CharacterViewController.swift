@@ -13,7 +13,7 @@ import Kingfisher
 
 class CharacterViewController: UIViewController {
 
-    var items = [ModelCharacterResults]()
+    var items = [ModelArtsResults]()
     @IBOutlet weak var lblNoRecord: UILabel!
     var characterService = CharacterServiceCoordinator()
     @IBOutlet weak var tableView: UITableView!
@@ -46,7 +46,7 @@ class CharacterViewController: UIViewController {
      */
     func fetchCharacters(searchText : String = "")  {
         
-        let endpoint = Endpoint.characterList.replacingOccurrences(of: "{search}", with: searchText)
+        let endpoint = Endpoint.apiArts
         self.characterService.fetchCharacters(path: endpoint) { [weak self] response, success, error in
         
             guard success == true && response != nil else{
@@ -91,7 +91,7 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CharacterTableViewCell"
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! CharacterTableViewCell
-        cell.characterResult = items[indexPath.row]
+        //cell.characterResult = items[indexPath.row]
         
         return cell
     }
@@ -104,9 +104,9 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let details = CharacterDetailsViewController.instantiateFromStoryboardMain()
-        details.characterID = items[indexPath.row].id ?? -123 // default 0 is not safe because index number zero is possible. set a unrealistic default value
-        self.navigationController?.pushViewController(details, animated: true)
+//        let details = CharacterDetailsViewController.instantiateFromStoryboardMain()
+//        details.characterID = items[indexPath.row].id ?? -123 // default 0 is not safe because index number zero is possible. set a unrealistic default value
+        //self.navigationController?.pushViewController(details, animated: true)
     }
 
     

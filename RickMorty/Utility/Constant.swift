@@ -15,14 +15,17 @@ struct Endpoint {
     
     static let characterList = "character/?name={search}"
     static let characterDetails = "character/{id}"
+    static let apiArts = "/arts.json?api-key={api_key}"
 
 }
 
 struct userDefaults {
 
 }
+ 
+let BASE_URL = "https://api.nytimes.com/svc/topstories/v2"
+let APIKey = "mDvKW4kQAFIsRWf330MBYtyTFzwMQGmp"
 
- let BASE_URL = "https://rickandmortyapi.com/api/"
  
  
 

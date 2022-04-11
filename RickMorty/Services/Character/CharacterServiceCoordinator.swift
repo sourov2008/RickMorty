@@ -18,14 +18,14 @@ class CharacterServiceCoordinator {
         self.characterServiceMethod = characterServiceMthod
     }
     
-    func fetchCharacters(path: String, completion: @escaping( _ response:ModelCharacterBaseClass?,  _ success: Bool, _ error: String?) -> Void) {
+    func fetchCharacters(path: String, completion: @escaping( _ response:ModelArtsBase?,  _ success: Bool, _ error: String?) -> Void) {
         
         characterServiceMethod.getCharacters(path: path) { result in
             switch result {
             case .success(let details):
                 
-                if details.error != nil {
-                    completion(nil, false, details.error ?? "error")
+                if details.fault != nil {
+                    completion(nil, false, details.fault?.faultstring ?? "error")
                 }else{
                     completion(details, true, nil)
                 }

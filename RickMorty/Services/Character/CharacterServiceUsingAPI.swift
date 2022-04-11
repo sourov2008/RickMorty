@@ -10,16 +10,16 @@ import Foundation
 
 protocol CharacterServiceDelegate {
     
-    func getCharacters(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void)
+    func getCharacters(path: String, completion: @escaping(Result<ModelArtsBase, NetworkError>) -> Void)
     
 }
 
 class CharacterServiceUsingAPI : CharacterServiceDelegate  {
     
 
-    func getCharacters(path: String, completion: @escaping(Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
+    func getCharacters(path: String, completion: @escaping(Result<ModelArtsBase, NetworkError>) -> Void) {
            
-        return RestAPIClient.request(type: ModelCharacterBaseClass.self,
+        return RestAPIClient.request(type: ModelArtsBase.self,
                                      route: NetworkRouter.nonPaginatedGET(path: path),
                            completion: completion)
     }
