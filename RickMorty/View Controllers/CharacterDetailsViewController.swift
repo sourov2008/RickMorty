@@ -12,6 +12,7 @@ class CharacterDetailsViewController: UIViewController {
 
     var details : ModelArtsResults?
 
+    @IBOutlet weak var ratio: NSLayoutConstraint!
     
     @IBOutlet weak var lblDes: UILabel!
     @IBOutlet weak var lblAuthor: UILabel!
@@ -43,23 +44,40 @@ extension CharacterDetailsViewController{
     
     func updateUI( )  {
         
-//        self.lblDes.text = details?.abstract
-        self.lblDes.text = "details?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstract"
-
-        
+        self.title = details?.subsection?.capitalized
+        self.lblDes.text = details?.abstract        
         
         self.lblTitle.text = details?.title
         self.lblAuthor.text = details?.byline
         
         if (details?.multimedia?.count ?? 0) > 0{
-            
             if let imageURL =  URL(string: details?.multimedia?[0].url ?? "" ){
                 self.img?.kf.setImage(with: imageURL)
+                self.img.layoutSubviews()
             }
         }
 
- 
-     
     }
     
+ 
 }
+class ScaledHeightImageView: UIImageView {
+
+    
+    // Dynamically changes the size of imageview.
+    override var intrinsicContentSize: CGSize {
+
+        if let myImage = self.image {
+            let myImageWidth = myImage.size.width
+            let myImageHeight = myImage.size.height
+            let myViewWidth = self.frame.size.width
+
+            let ratio = myViewWidth/myImageWidth
+            let scaledHeight = myImageHeight * ratio
+
+            return CGSize(width: myViewWidth, height: scaledHeight)
+        }
+        return CGSize(width: -1.0, height: -1.0)
+    }
+}
+ 

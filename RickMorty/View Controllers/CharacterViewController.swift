@@ -22,7 +22,7 @@ class CharacterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Rick And Morty"
+        self.title = "Arts Article"
         self.configureNavigationController()
         
         tableView.rowHeight = UITableView.automaticDimension
