@@ -34,6 +34,12 @@ class CharacterDetailsViewController: UIViewController {
         super.viewDidAppear(true)
         updateUI()
     }
+    @IBAction func btnActionSeeFullArticle(_ sender: Any) {
+        
+        if let url = URL(string: details?.shortUrl ?? "www.google.com") {
+            UIApplication.shared.open(url)
+        }
+    }
     
 }
 
@@ -45,7 +51,7 @@ extension CharacterDetailsViewController{
     func updateUI( )  {
         
         self.title = details?.subsection?.capitalized
-        self.lblDes.text = details?.abstract        
+        self.lblDes.text = details?.abstract
         
         self.lblTitle.text = details?.title
         self.lblAuthor.text = details?.byline
