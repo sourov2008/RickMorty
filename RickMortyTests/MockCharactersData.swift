@@ -11,15 +11,15 @@ import Foundation
 class MockCharactersData: CharacterServiceDelegate {
  
     
-    func getCharacters(path: String, completion: @escaping (Result<ModelCharacterBaseClass, NetworkError>) -> Void) {
+    func getCharacters(path: String, completion: @escaping (Result<ModelArtsBase, NetworkError>) -> Void) {
         guard let jsonData = readLocalJsonFile() else {
             completion(.failure(.NoData("")))
             return
         }
         do {
-            let obj = try  JSONDecoder().decode(ModelCharacterBaseClass.self, from: jsonData)
+            let obj = try  JSONDecoder().decode(ModelArtsBase.self, from: jsonData)
             completion(.success(obj))
-        } catch let error {
+        } catch _ {
             completion(.failure(.DecodingError("")))
         }
     }

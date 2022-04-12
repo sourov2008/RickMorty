@@ -18,11 +18,10 @@ class MockCharactersAPITest: XCTestCase {
 
             
             guard success == true && response != nil else{
-                //self?.showToast(message: error ?? "error", font: UIFont.systemFont(ofSize: 12))
                  return
             }
             
-            XCTAssert(response?.results?.count ?? 0 > 0)
+            XCTAssert(response?.status ==  "OK")
         
         
         }
