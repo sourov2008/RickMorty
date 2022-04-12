@@ -107,9 +107,9 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let details = CharacterDetailsViewController.instantiateFromStoryboardMain()
-//        details.characterID = items[indexPath.row].id ?? -123 // default 0 is not safe because index number zero is possible. set a unrealistic default value
-        //self.navigationController?.pushViewController(details, animated: true)
+        let obj = CharacterDetailsViewController.instantiateFromStoryboardMain()
+        obj.details = items[indexPath.row] // default 0 is not safe because index number zero is possible. set a unrealistic default value
+        self.navigationController?.pushViewController(obj, animated: true)
     }
 
     

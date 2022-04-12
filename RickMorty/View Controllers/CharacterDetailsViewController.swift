@@ -10,14 +10,14 @@ import Kingfisher
 
 class CharacterDetailsViewController: UIViewController {
 
-    var detailsService = CharacterDetailsServiceCoordinator()
+    var details : ModelArtsResults?
 
     
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblSpecies: UILabel!
-    @IBOutlet weak var lblStatus: UILabel!
-    @IBOutlet weak var lblGender: UILabel!
-    @IBOutlet weak var lblCurrentLocation: UILabel!
+    @IBOutlet weak var lblDes: UILabel!
+    @IBOutlet weak var lblAuthor: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var btnSeeMore: UIButton!
+
     @IBOutlet weak var img: UIImageView!
 
     var characterID: Int = 0
@@ -31,7 +31,7 @@ class CharacterDetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        retriveCharacterByUsing(id: characterID)
+        updateUI()
     }
     
 }
@@ -39,35 +39,26 @@ class CharacterDetailsViewController: UIViewController {
 // MARK: Class funciton
 extension CharacterDetailsViewController{
     
-    // Fetch character details from web API
-    func retriveCharacterByUsing(id: Int)  {
-        let endpoint = Endpoint.characterDetails.replacingOccurrences(of: "{id}", with: id.description)
-        detailsService.fetchCharacterDetails(path: endpoint) { [weak self] response, success, error in
+ 
+    
+    func updateUI( )  {
+        
+//        self.lblDes.text = details?.abstract
+        self.lblDes.text = "details?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstractdetails?.abstract"
+
+        
+        
+        self.lblTitle.text = details?.title
+        self.lblAuthor.text = details?.byline
+        
+        if (details?.multimedia?.count ?? 0) > 0{
             
-            guard success == true && response != nil else{
-                self?.showToast(message: error ?? "error", font: UIFont.systemFont(ofSize: 12))
-                 return
+            if let imageURL =  URL(string: details?.multimedia?[0].url ?? "" ){
+                self.img?.kf.setImage(with: imageURL)
             }
-            
-            // success then update UI
-            self?.updateUI(details: response!)
-            
         }
 
-    }
-    
-    func updateUI( details: ModelCharacterDetailsBaseClass)  {
-        
-        self.lblName.text = details.name
-        self.lblSpecies.text = details.species
-        self.lblStatus.text = details.status
-        self.lblCurrentLocation.text = details.location?.name
-        self.lblGender.text = details.gender
-        
-        if let imageURL =  URL(string: details.image ?? "" ){
-            self.img?.kf.setImage(with: imageURL)
-            
-        }
+ 
      
     }
     
