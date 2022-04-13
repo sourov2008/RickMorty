@@ -37,10 +37,10 @@
 		404439F327B6074C0085A481 /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 404439F227B6074C0085A481 /* Readme.rtf */; };
 		404439F527B66F6B0085A481 /* ArticleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439F427B66F6B0085A481 /* ArticleDetailsVC.swift */; };
 		404439F627B66F6B0085A481 /* ArticleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404439F427B66F6B0085A481 /* ArticleDetailsVC.swift */; };
-		40443A0F27B691F30085A481 /* Characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 40443A0A27B691F30085A481 /* Characters.json */; };
+		40443A0F27B691F30085A481 /* MockArtsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 40443A0A27B691F30085A481 /* MockArtsList.json */; };
 		40443A1127B691F30085A481 /* MockArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40443A0B27B691F30085A481 /* MockArticleData.swift */; };
 		40443A1527B691F30085A481 /* MockArticleAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40443A0D27B691F30085A481 /* MockArticleAPITest.swift */; };
-		40443A1627B693330085A481 /* Characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 40443A0A27B691F30085A481 /* Characters.json */; };
+		40443A1627B693330085A481 /* MockArtsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 40443A0A27B691F30085A481 /* MockArtsList.json */; };
 		404A8C962804C83C008CF3CA /* ModelArtsMultimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8C912804C83B008CF3CA /* ModelArtsMultimedia.swift */; };
 		404A8C972804C83C008CF3CA /* ModelArtsMultimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8C912804C83B008CF3CA /* ModelArtsMultimedia.swift */; };
 		404A8C982804C83C008CF3CA /* ModelArtsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8C922804C83C008CF3CA /* ModelArtsBase.swift */; };
@@ -93,7 +93,7 @@
 		404439DA27B5E0370085A481 /* ArticleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListVC.swift; sourceTree = "<group>"; };
 		404439F227B6074C0085A481 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		404439F427B66F6B0085A481 /* ArticleDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsVC.swift; sourceTree = "<group>"; };
-		40443A0A27B691F30085A481 /* Characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Characters.json; sourceTree = "<group>"; };
+		40443A0A27B691F30085A481 /* MockArtsList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockArtsList.json; sourceTree = "<group>"; };
 		40443A0B27B691F30085A481 /* MockArticleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockArticleData.swift; sourceTree = "<group>"; };
 		40443A0D27B691F30085A481 /* MockArticleAPITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockArticleAPITest.swift; sourceTree = "<group>"; };
 		404A8C912804C83B008CF3CA /* ModelArtsMultimedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelArtsMultimedia.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			children = (
 				40443A0B27B691F30085A481 /* MockArticleData.swift */,
 				40443A0D27B691F30085A481 /* MockArticleAPITest.swift */,
-				40443A0A27B691F30085A481 /* Characters.json */,
+				40443A0A27B691F30085A481 /* MockArtsList.json */,
 			);
 			path = NYTimesTests;
 			sourceTree = "<group>";
@@ -382,7 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40443A1627B693330085A481 /* Characters.json in Resources */,
+				40443A1627B693330085A481 /* MockArtsList.json in Resources */,
 				401B855527B5CE1300A7CF71 /* LaunchScreen.storyboard in Resources */,
 				401B855227B5CE1300A7CF71 /* Assets.xcassets in Resources */,
 				404439F327B6074C0085A481 /* Readme.rtf in Resources */,
@@ -394,7 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40443A0F27B691F30085A481 /* Characters.json in Resources */,
+				40443A0F27B691F30085A481 /* MockArtsList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +686,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -710,7 +710,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
