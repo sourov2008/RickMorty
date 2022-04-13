@@ -28,11 +28,6 @@ class ArticleListVC: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200 // a number and not UITableView.automaticDimension
 
-        // Search config
-        navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
-        navigationItem.hidesSearchBarWhenScrolling = false
-
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = UIColor.clear
@@ -47,7 +42,7 @@ class ArticleListVC: UIViewController {
      *  Load your desierd page from API.
      *  @param searchText is your desired search text
      */
-    func fetchCharacters(searchText : String = "")  {
+    func fetchCharacters()  {
         
         let endpoint = Endpoint.apiArts
         self.characterService.fetchCharacters(path: endpoint) { [weak self] response, success, error in
@@ -72,16 +67,7 @@ class ArticleListVC: UIViewController {
          }
     }
 }
-// MARK - UISearchResultsUpdating Delegates
-extension ArticleListVC: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        guard let text = searchController.searchBar.text else { return }
-        self.fetchCharacters(searchText: text)
-    }
-    
-}
+ 
 // MARK - UITableView Delegates
 extension ArticleListVC: UITableViewDelegate, UITableViewDataSource {
         
