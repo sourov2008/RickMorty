@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class CharacterDetailsViewController: UIViewController {
+class ArticleDetailsVC: UIViewController {
 
     var details : ModelArtsResults?
 
@@ -44,7 +44,7 @@ class CharacterDetailsViewController: UIViewController {
 }
 
 // MARK: Class funciton
-extension CharacterDetailsViewController{
+extension ArticleDetailsVC{
     
  
     

@@ -12,11 +12,7 @@ struct Storyboards {
 }
 
 struct Endpoint {
-    
-    static let characterList = "character/?name={search}"
-    static let characterDetails = "character/{id}"
     static let apiArts = "/arts.json?api-key={api_key}"
-
 }
 
 struct userDefaults {

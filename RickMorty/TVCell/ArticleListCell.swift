@@ -7,11 +7,11 @@
 import UIKit
 import Kingfisher
 
-class CharacterTableViewCell: UITableViewCell {
+class ArticleListCell: UITableViewCell {
 
     @IBOutlet weak var lbltitle: UILabel?
     @IBOutlet weak var img: UIImageView?
-    @IBOutlet weak var lblEpisodeCount: UILabel?
+    @IBOutlet weak var lblAuthor: UILabel?
 
     
     var characterResult: ModelArtsResults?{
@@ -27,7 +27,7 @@ class CharacterTableViewCell: UITableViewCell {
                 }
             }
 
-            lblEpisodeCount?.text =  characterResult?.byline ?? ""
+            lblAuthor?.text =  characterResult?.byline ?? ""
 
         }
         

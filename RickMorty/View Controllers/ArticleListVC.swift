@@ -11,11 +11,11 @@
 import UIKit
 import Kingfisher
 
-class CharacterViewController: UIViewController {
+class ArticleListVC: UIViewController {
 
     var items = [ModelArtsResults]()
     @IBOutlet weak var lblNoRecord: UILabel!
-    var characterService = CharacterServiceCoordinator()
+    var characterService = ArticleServiceViewModel()
     @IBOutlet weak var tableView: UITableView!
  
     let searchController = UISearchController()
@@ -73,7 +73,7 @@ class CharacterViewController: UIViewController {
     }
 }
 // MARK - UISearchResultsUpdating Delegates
-extension CharacterViewController: UISearchResultsUpdating {
+extension ArticleListVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         
@@ -83,7 +83,7 @@ extension CharacterViewController: UISearchResultsUpdating {
     
 }
 // MARK - UITableView Delegates
-extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
+extension ArticleListVC: UITableViewDelegate, UITableViewDataSource {
         
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,7 +93,7 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CharacterTableViewCell"
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! CharacterTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ArticleListCell
         cell.characterResult = items[indexPath.row]
         
         return cell
@@ -107,7 +107,7 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let obj = CharacterDetailsViewController.instantiateFromStoryboardMain()
+        let obj = ArticleDetailsVC.instantiateFromStoryboardMain()
         obj.details = items[indexPath.row] // default 0 is not safe because index number zero is possible. set a unrealistic default value
         self.navigationController?.pushViewController(obj, animated: true)
     }

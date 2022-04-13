@@ -10,11 +10,11 @@
  */
 import Foundation
 
-class CharacterServiceCoordinator {
+class ArticleServiceViewModel {
 
-    private let characterServiceMethod: CharacterServiceDelegate
+    private let characterServiceMethod: ArticleServiceDelegate
     
-    init(characterServiceMthod: CharacterServiceDelegate = CharacterServiceUsingAPI()){
+    init(characterServiceMthod: ArticleServiceDelegate = CharacterServiceUsingAPI()){
         self.characterServiceMethod = characterServiceMthod
     }
     

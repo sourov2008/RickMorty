@@ -8,13 +8,13 @@
 import Foundation
 
 
-protocol CharacterServiceDelegate {
+protocol ArticleServiceDelegate {
     
     func getCharacters(path: String, completion: @escaping(Result<ModelArtsBase, NetworkError>) -> Void)
     
 }
 
-class CharacterServiceUsingAPI : CharacterServiceDelegate  {
+class CharacterServiceUsingAPI : ArticleServiceDelegate  {
     
 
     func getCharacters(path: String, completion: @escaping(Result<ModelArtsBase, NetworkError>) -> Void) {

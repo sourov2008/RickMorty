@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Character View Controller-->
+        <!--Article ListVC-->
         <scene sceneID="UlN-N9-ETh">
             <objects>
-                <viewController storyboardIdentifier="CharacterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GoS-yZ-iIm" customClass="CharacterViewController" customModule="RickMorty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GoS-yZ-iIm" customClass="ArticleListVC" customModule="RickMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HYN-oU-xf7"/>
                         <viewControllerLayoutGuide type="bottom" id="0gh-PF-pUi"/>
@@ -50,7 +50,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterTableViewCell" rowHeight="377" id="DI5-t0-zfz" customClass="CharacterTableViewCell" customModule="RickMorty" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterTableViewCell" rowHeight="377" id="DI5-t0-zfz" customClass="ArticleListCell" customModule="RickMorty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="398" height="377"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DI5-t0-zfz" id="sMb-ct-A7i">
@@ -93,7 +93,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="img" destination="pd4-AT-0vu" id="bv7-14-i6h"/>
-                                            <outlet property="lblEpisodeCount" destination="qPt-Qt-kwW" id="I51-N4-0Uz"/>
+                                            <outlet property="lblAuthor" destination="qPt-Qt-kwW" id="I51-N4-0Uz"/>
                                             <outlet property="lbltitle" destination="M4Z-lN-MGK" id="UwR-lA-iE5"/>
                                         </connections>
                                     </tableViewCell>
@@ -119,11 +119,10 @@
             </objects>
             <point key="canvasLocation" x="2573.913043478261" y="-34.151785714285715"/>
         </scene>
-        <!--Character Details View Controller-->
+        <!--Article DetailsVC-->
         <scene sceneID="YvR-4a-A4P">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xsq-Sj-Grj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="CharacterDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PSj-em-egs" customClass="CharacterDetailsViewController" customModule="RickMorty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PSj-em-egs" customClass="ArticleDetailsVC" customModule="RickMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c1P-XY-WWN"/>
                         <viewControllerLayoutGuide type="bottom" id="gIi-Vr-d4W"/>
@@ -223,6 +222,7 @@
                         <outlet property="lblTitle" destination="kSw-HC-Ubd" id="CBA-Cz-xIt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xsq-Sj-Grj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3286.9565217391305" y="-16.071428571428569"/>
         </scene>
