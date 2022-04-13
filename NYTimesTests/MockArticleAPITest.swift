@@ -12,7 +12,7 @@ class MockCharactersAPITest: XCTestCase {
 
     func testCharacters() {
 
-        let obj = ArticleServiceViewModel(characterServiceMthod: MockCharactersData() )
+        let obj = ArticleServiceViewModel(characterServiceMthod: MockArticleData() )
         
         obj.fetchCharacters(path: "local") { [weak self] response,success,error  in
 

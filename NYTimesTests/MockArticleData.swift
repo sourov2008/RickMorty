@@ -8,7 +8,7 @@
 import Foundation
 //@testable import RickMortyTests
 
-class MockCharactersData: ArticleServiceDelegate {
+class MockArticleData: ArticleServiceDelegate {
  
     
     func getCharacters(path: String, completion: @escaping (Result<ModelArtsBase, NetworkError>) -> Void) {
